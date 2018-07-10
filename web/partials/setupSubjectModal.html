@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <h3 class="modal-title">Setup Subject</h3>
+</div>
+<div class="modal-body">
+    Department: {{selectedSubject.department.name}}
+    <br />
+    Code: <input type="text" name="txtCode" ng-model="newCode">
+    <br />
+    Title: <input type="text" name="txtTitle" ng-model="newTitle">
+    <br />
+    hours: <input type="number" name="numHours" min="1" ng-model="newHours">
+    <br />
+    type: <select name="ddllType" ng-model="newType">
+      <option value="LEC">Lecture</option>
+      <option value="LAB">Laboratory</option>
+    </select>
+    <br />
+    units: <input type="number" name="numUnits" min="1" ng-model="newUnits">
+    <br />
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Apply</button>
+    <button class="btn btn-primary" type="button" ng-click="delete()">Delete Subject</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

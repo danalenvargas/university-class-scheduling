@@ -1,0 +1,7 @@
+<h4>Setup Subjects</h4>
+<button ng-click="openAddSubjectModal()">Add new subject</button>
+<br /><br />
+<h6>List of Subjects</h6>
+<ul>
+    <li ng-repeat="subject in subjectList" ng-click="openSetupSubjectModal(subject)">{{subject.code}} - {{subject.type}} - {{subject.title}}</li>
+</ul>

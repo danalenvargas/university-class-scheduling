@@ -1,0 +1,7 @@
+<h4>Setup Instructors</h4>
+<button ng-click="openAddInstructorModal()">Add new instructor</button>
+<br /><br />
+<h6>List of Instructors</h6>
+<ul>
+    <li ng-repeat="instructor in instructorList" ng-click="openSetupInstructorModal(instructor)">{{instructor.name}}</li>
+</ul>

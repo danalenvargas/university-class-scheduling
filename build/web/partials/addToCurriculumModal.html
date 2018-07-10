@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <h3 class="modal-title">Add Subject To Curriculum</h3>
+</div>
+<div class="modal-body">
+    Adding to Year {{year}} {{semString}}
+    <br />
+    <br />
+    Subject: <select name="ddlSubject" ng-model="selectedSubject" ng-options="subject as subject.code + ' - ' + subject.type for subject in subjectList | orderBy:'code'">
+    </select>
+    <br />
+    Title: {{selectedSubject.title}}
+    <br />
+    Code: {{selectedSubject.code}}
+    <br />
+    Type: {{selectedSubject.type}}
+    <br />
+    Hours: {{selectedSubject.hours}}
+    <br />
+    Units: {{selectedSubject.units}}
+    <br />
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Add</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

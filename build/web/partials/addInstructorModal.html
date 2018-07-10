@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h3 class="modal-title">Add instructor</h3>
+</div>
+<div class="modal-body">
+    Department: <select name="ddlDepartment" ng-model="selectedDepartment" ng-options="department as department.code for department in departmentList">
+    </select>
+    <br />
+    First Name: <input type="text" name="fName" ng-model="firstName">
+    <br />
+    Middle Initial: <input type="text" name="mInitial" ng-model="middleInitial">
+    <br />
+    Last Name: <input type="text" name="lName" ng-model="lastName">
+    <br />
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Add</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

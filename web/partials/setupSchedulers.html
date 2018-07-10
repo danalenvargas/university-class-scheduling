@@ -1,0 +1,42 @@
+<br />
+<h4>Modify Existing Schedulers</h4>
+<br /><br />
+Select Scheduler: <select name="ddlScheduler" ng-model="selectedScheduler" ng-options="scheduler as scheduler.userName for scheduler in schedulerList" ng-change="onSchedulerChange()">
+</select>
+<br /><br />
+<button class="btn btn-primary" type="button" ng-click="editScheduler()">Apply Changes</button>
+<button class="btn btn-warning" type="button" ng-click="clearChanges()">Clear Changes</button>
+<br /><br />
+
+Department: <select name="ddlDepartment" ng-model="selectedDepartment" ng-options="department as department.code for department in departmentList">
+</select>
+<br /><br />
+Username: <input type="text" name="name" ng-model="name">
+<br /><br />
+Password: <input type="text" name="pass" ng-model="password">
+<br /><br />
+Allow scheduler to edit time? <input type="checkbox" ng-model="canEditTime">
+<br/><br/>
+<uib-tabset active="active">
+    <uib-tab index="0" heading="Sections">
+        Sections
+        <div ivh-treeview="mySectionsList">
+        </div>
+    </uib-tab>
+    <uib-tab index="1" heading="Subjects">
+        Subjects
+        <div ivh-treeview="mySubjectsList">
+        </div>
+    </uib-tab>
+    <uib-tab index="2" heading="Rooms">
+        Rooms
+        <div ivh-treeview="myRoomsList">
+        </div>
+    </uib-tab>
+    <uib-tab index="3" heading="Instructors">
+        Instructors
+        <div ivh-treeview="myInstructorsList">
+        </div>
+    </uib-tab>
+</uib-tabset>
+<br><br>

@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h3 class="modal-title">Setup Instructor</h3>
+</div>
+<div class="modal-body">
+    Department: {{selectedInstructor.department.name}}
+    <br />
+    <br />
+    First Name: <input type="text" name="fName" ng-model="newFirstName">
+    <br />
+    Middle Initial: <input type="text" name="mInitial" ng-model="newMiddleInitial">
+    <br />
+    Last Name: <input type="text" name="lName" ng-model="newLastName">
+    <br />
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Apply</button>
+    <button class="btn btn-primary" type="button" ng-click="delete()">Delete Instructor</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

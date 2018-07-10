@@ -1,0 +1,27 @@
+<!--<!DOCTYPE html>-->
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="modal-header">
+    <h3 class="modal-title">Setup Section</h3>
+</div>
+<div class="modal-body">
+    Name: {{selectedSection.name}}
+    <br />
+    Department: {{selectedSection.course.department.name}}
+    <br />
+    Course: {{selectedSection.course.name}}
+    <br />
+    Year: {{selectedSection.year}}
+    <br />
+    Number: <select name="ddlNumber" ng-model="newSectionNumber" ng-options="number.id as number.id disable when number.isDisabled for number in numberList">
+    </select>
+    <br />
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Apply</button>
+    <button class="btn btn-primary" type="button" ng-click="delete()">Delete Section</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,22 @@
+<div class="modal-header">
+    <h3 class="modal-title">Setup Curriculum</h3>
+</div>
+<div class="modal-body">
+    Year {{year}} {{semString}}
+    <br />
+    <br />
+    Title: {{selectedSubject.title}}
+    <br />
+    Code: {{selectedSubject.code}}
+    <br />
+    Type: {{selectedSubject.type}}
+    <br />
+    Hours: {{selectedSubject.hours}}
+    <br />
+    Units: {{selectedSubject.units}}
+    <br />
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="delete()">Remove Subject</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <h3 class="modal-title">Add subject</h3>
+</div>
+<div class="modal-body">
+    Department: <select name="ddlDepartment" ng-model="selectedDepartment" ng-options="department as department.code for department in departmentList | orderBy:'code'">
+    </select>
+    <br />
+    Code: <input type="text" name="txtCode" ng-model="code">
+    <br />
+    Title: <input type="text" name="txtTitle" ng-model="title">
+    <br />
+    hours: <input type="number" name="numHours" min="1" ng-model="hours">
+    <br />
+    type: <select name="ddllType" ng-model="selectedType">
+      <option value="LEC">Lecture</option>
+      <option value="LAB">Laboratory</option>
+    </select>
+    <br />
+    units: <input type="number" name="numUnits" min="1" ng-model="units">
+    <br />
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Add</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

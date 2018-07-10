@@ -1,0 +1,35 @@
+
+    <h3">Add Scheduler</h3>
+    
+    <button class="btn btn-primary" type="button" ng-click="addScheduler()">Add Scheduler</button>
+    <button class="btn btn-warning" type="button" ng-click="clear()">Clear</button>
+    
+    Department: <select name="ddlDepartment" ng-model="selectedDepartment" ng-options="department as department.code for department in departmentList">
+    </select>
+    <br />
+    Name: <input type="text" name="name" ng-model="name">
+    <br />
+    Password: <input type="text" name="pass" ng-model="password">
+    <br />
+    Allow scheduler to edit time? <input type="checkbox" ng-model="canEditTime">
+    <br/><br/>
+<!--    *************************
+    MAKE THIS PART TO TABS
+    *************************-->    
+    <div class="modalColumn">
+        <div class="modalColumn">
+            Sections
+            <div ivh-treeview="mySectionsList">
+            </div>
+        </div>
+    </div>
+    <div class="modalColumn">
+        <div class="modalColumn">Subjects</div>
+    </div>
+    <div class="modalColumn">
+        <div class="modalColumn">Rooms</div>
+    </div>
+    <div class="modalColumn">
+        <div class="modalColumn">Instructors</div>
+    </div>
+    <br><br>

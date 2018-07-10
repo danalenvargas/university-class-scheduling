@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <h3 class="modal-title">Schedule Validation</h3>
+</div>
+<div class="modal-body">
+    Status: {{schedEntry.status}}
+    <br /><br />
+    Subject: {{schedEntry.subject.title}} | {{schedEntry.subject.type}}
+    <br />
+    Day: {{dayList[day].text}}
+    <br />
+    Begin: {{timeList[start].text}}
+    <br />
+    End: {{timeList[end].text}}
+    <br />
+    Instructor: {{schedEntry.instructor.name}}
+    <br />
+    Room: {{schedEntry.room.name}}
+    <br />
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" id="btnSubmit" type="button" ng-disabled="isSubmittedBtnDisabled" ng-click="submit()">Submit</button>
+    <button class="btn btn-primary" id="btnUnsubmit" type="button" ng-disabled="isUnsubmittedBtnDisabled" ng-click="unsubmit()">Un-submit</button>
+<!--    <button id="btnSubmit" type="button" ng-disabled="isSubmittedBtnDisabled" ng-click="submit()">Submit</button>
+    <button id="btnUnsubmit" type="button" ng-disabled="isUnsubmittedBtnDisabled" ng-click="unsubmit()">Un-submit</button>-->
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>

@@ -1,0 +1,7 @@
+<h4>Setup Rooms</h4>
+<button ng-click="openAddRoomModal()">Add new room</button>
+<br /><br />
+<h6>List of Rooms</h6>
+<ul>
+    <li ng-repeat="room in roomList" ng-click="openSetupRoomModal(room)">{{room.name}}</li>
+</ul>

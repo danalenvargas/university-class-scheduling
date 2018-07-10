@@ -1,0 +1,14 @@
+<div class="modal-header">
+<h3 class="modal-title">Share Sections</h3>
+</div>
+<div class="modal-body">
+User: <select name="ddlUser" ng-model="selectedUser" ng-change="updateSectionTree(selectedUser)" ng-options="user as user.name for user in usersList">
+</select>
+<div ivh-treeview="shareableSectionsList">
+</div>
+<p>Do you want to share your sections with this user?</p>
+</div>
+<div class="modal-footer">
+<button class="btn btn-primary" type="button" ng-click="ok()">Share</button>
+<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

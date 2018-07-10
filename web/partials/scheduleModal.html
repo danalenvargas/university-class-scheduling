@@ -1,0 +1,67 @@
+<div class="modal-header">
+    <h3 class="modal-title">Schedule Plotting</h3>
+    <span uib-alert ng-show="schedEntry.isReturnRequested">This schedule has been requested for return.
+        <span ng-show="!(isReturnBtnDisabled || !selectedItem.isAssigned)">
+            <button style="float:right; margin-right: 5px;" class="btn btn-danger btn-xs" id="btnDeny" type="button" ng-click="denyReturn()">Deny</button>
+            <button style="float:right; margin-right: 5px;" class="btn btn-success btn-xs" id="btnReturn2" type="button" ng-click="return()">Return</button>
+        </span>
+    </span>
+</div>
+<div class="modal-body">
+    Subject: <select ng-disabled = "cannotEdit || !selectedItem.isAssigned" name="ddlSubject" ng-model="selectedSubject" ng-options="subject as subject.code + ' ' + subject.type disable when subject.isDisabled for subject in subjectList" ng-change="onSubjectChange()">
+    </select>
+    {{selectedSubject.title}} | {{selectedSubject.type}}  |  Hours: {{selectedSubject.hoursPlotted}}/{{selectedSubject.hours}}
+    <span class="label label-warning" ng-show="lbl4IsVisible">Previously selected subject is not available anymore.</span>
+    <br />
+    <br />
+    Day: <select ng-disabled = "cannotEdit || !selectedItem.isAssigned" name="ddlDay" ng-model="selectedDay" ng-options="day.id as day.text for day in dayList" ng-change="onDayChange()">
+    </select>
+    <br />
+    Begin: <select ng-disabled = "cannotEdit || !selectedItem.isAssigned" name="ddlBegin" ng-model="selectedStart" ng-options="time.id as time.text disable when time.isDisabled for time in startList" ng-change="onStartChange()">
+    </select> <span class="label label-warning" ng-show="lbl5IsVisible">Previously selected time is not available anymore.</span>
+    <br />
+    End: <select ng-disabled = "cannotEdit || !selectedItem.isAssigned" name="ddlEnd" ng-model="selectedEnd" ng-options="time.id as time.text disable when time.isDisabled for time in endList" ng-change="onEndChange()">
+    </select>   <span class="label label-warning" ng-show="lbl1IsVisible">End time from history has been adjusted to match subject's remaining plottable hours.</span> <span class="label label-warning" ng-show="lbl6IsVisible">Previously selected time is not available anymore.</span>
+    <br />
+    Instructor: <select ng-disabled = "(cannotEdit || !selectedItem.isAssigned) && !canOnlyEditInstructorRoom" name="ddlInstructor" ng-model="selectedInstructor" ng-options="instructor as instructor.name for instructor in instructorList" ng-change="clearLabels()">
+        <option ng-show="!canOnlyEditInstructorRoom"></option>
+    </select>   <span class="label label-warning" ng-show="lbl2IsVisible">Previously selected instructor is not available anymore.</span>
+    <br />
+    Room: <select ng-disabled = "(cannotEdit || !selectedItem.isAssigned) && !canOnlyEditInstructorRoom" name="ddlRoom" ng-model="selectedRoom" ng-options="room as room.name for room in roomList" ng-change="clearLabels()">
+        <option ng-show="!canOnlyEditInstructorRoom"></option>
+    </select>   <span class="label label-warning" ng-show="lbl3IsVisible">Previously selected room is not available anymore.</span>
+    <br />
+</div>
+<div class="modal-footer">
+    <span style="float:left">Status: {{schedEntry.status}}&nbsp&nbsp&nbsp&nbsp&nbspCreator:</span>
+    <span style="float:left" ng-if="schedEntry">{{schedEntry.creator.userName}} ({{schedEntry.timestamp}})</span>
+    <br />
+    <button style="float:left" class="btn btn-primary" id="btnReturn" type="button" ng-show="!(isReturnBtnDisabled || !selectedItem.isAssigned)" ng-click="return()">Return</button>
+    <button style="float:left" class="btn btn-primary" id="btnRequestReturn" type="button" ng-show="!schedEntry.isReturnRequested && isReturnBtnDisabled && canOnlyEditInstructorRoom" ng-click="requestReturn()">Request Return</button>
+    <button style="float:left" class="btn btn-primary" id="btnLock" type="button" ng-show="!(isLockBtnDisabled || !selectedItem.isAssigned)" ng-click="lock()">Lock</button>
+    <button style="float:left" class="btn btn-primary" id="btnApprove" type="button" ng-show="!(isApproveBtnDisabled || !selectedItem.isAssigned)" ng-click="approve()">Approve</button>
+
+    <span ng-show="!(cannotEdit || !selectedItem.isAssigned)">History: <select name="ddlHistory" ng-model="selectedHistory" ng-options="schedEntry as schedEntry.timestamp disable when schedEntry.isDisabled for schedEntry in historyList" ng-change="onHistorySelect(selectedHistory)">
+        </select></span>
+    <button class="btn btn-primary" type="button" ng-show="!(cannotEdit || !selectedItem.isAssigned) || canOnlyEditInstructorRoom" ng-click="ok()">Save</button>
+    <button class="btn btn-primary" type="button" ng-show="!(cannotEdit || !selectedItem.isAssigned || schedEntry == null)" ng-click="delete()">Delete Schedule</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    <br/><br/>
+    <uib-accordion>
+        <div uib-accordion-group class="panel-default" is-open="status.open">
+            <uib-accordion-heading>
+                <span style="color:black">Comments  <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i></span> 
+            </uib-accordion-heading>
+            <div ng-repeat="comment in commentList| orderBy:'entryDate'">
+                <p align="left">{{comment.senderName}}: {{comment.text}}</p>
+            </div>
+            <table width="100%">
+                <tr><td>
+                        <input type="text" ng-model="comment.text" style="width:100%" />
+                    </td><td width="100">
+                        <button type="button" class="btn btn-default btn-sm" ng-click="addComment()">Add Comment</button>
+                    </td></tr>
+            </table>
+        </div>
+    </uib-accordion>
+</div>

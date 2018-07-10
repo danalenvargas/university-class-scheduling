@@ -1,0 +1,13 @@
+<br />
+<h4>Add College Registrar</h4>
+<br />
+<button class="btn btn-primary" type="button" ng-click="addColreg()">Add College Registrar</button>
+<button class="btn btn-warning" type="button" ng-click="clear()">Clear</button>
+<br /><br />
+College: <select name="ddlCollege" ng-model="selectedCollege" ng-options="college as college.code for college in collegeList">
+    </select>
+<br /><br />
+Username: <input type="text" name="name" ng-model="name">
+<br /><br />
+Password: <input type="text" name="pass" ng-model="password">
+<br /><br />

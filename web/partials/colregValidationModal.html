@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h3 class="modal-title">Schedule Validation</h3>
+</div>
+<div class="modal-body">
+    Status: {{schedEntry.status}}
+    <br /><br />
+    Creator: {{schedEntry.creator.userName}}
+    <br /><br />
+    Subject: {{schedEntry.subject.title}} | {{schedEntry.subject.type}}
+    <br />
+    Day: {{dayList[day].text}}
+    <br />
+    Begin: {{timeList[start].text}}
+    <br />
+    End: {{timeList[end].text}}
+    <br />
+    Instructor: {{schedEntry.instructor.name}}
+    <br />
+    Room: {{schedEntry.room.name}}
+    <br />
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" id="btnReturn" type="button" ng-disabled="isReturnBtnDisabled" ng-click="return()">Return</button>
+    <button class="btn btn-primary" id="btnLock" type="button" ng-disabled="isLockBtnDisabled" ng-click="lock()">Lock</button>
+    <button class="btn btn-primary" id="btnApprove" type="button" ng-disabled="isApproveBtnDisabled" ng-click="approve()">Approve</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>

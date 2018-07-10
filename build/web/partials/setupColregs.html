@@ -1,0 +1,16 @@
+<br />
+<h4>Modify Existing College Registrars</h4>
+<br /><br />
+Select Registrar: <select name="ddlColreg" ng-model="selectedColreg" ng-options="colreg as colreg.userName for colreg in colregList" ng-change="onColregChange()">
+</select>
+<br /><br />
+<button class="btn btn-primary" type="button" ng-click="editColreg()">Apply Changes</button>
+<button class="btn btn-warning" type="button" ng-click="clearChanges()">Clear Changes</button>
+<br /><br />
+
+College: {{selectedCollege.name}}
+<br /><br />
+Username: <input type="text" name="name" ng-model="name">
+<br /><br />
+Password: <input type="text" name="pass" ng-model="password">
+<br /><br />

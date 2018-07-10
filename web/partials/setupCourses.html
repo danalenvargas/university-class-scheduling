@@ -1,0 +1,7 @@
+<h4>Setup Courses</h4>
+<button ng-click="openAddCourseModal()">Add new course</button>
+<br /><br />
+<h6>List of Courses</h6>
+<ul>
+    <li ng-repeat="course in courseList" ng-click="openSetupCourseModal(course)">{{course.code}} - {{course.name}}</li>
+</ul>

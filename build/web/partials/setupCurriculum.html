@@ -1,0 +1,28 @@
+<h4>Setup Curriculum</h4>
+Course: <select name="ddlCourse" ng-model="selectedCourse" ng-options="course as course.code for course in courseList" ng-change="getCurriculum()">
+</select>
+<br /><br />
+{{selectedCourse.name}}
+<h6>Curriculum: </h6>
+<ul>
+    <li ng-repeat="year in curriculum">
+        Year {{$index+1}}
+        <br/>
+        1st Semester <button ng-click="openAddToCurriculumModal($index+1, 1)">+</button>
+        <ul>
+        <li ng-repeat="curriculumEntry in year[0]" ng-click="openSetupCurriculumModal(curriculumEntry, $index+1, 1)">{{curriculumEntry.subject.code}} - {{curriculumEntry.subject.type}} - {{curriculumEntry.subject.title}}</li>
+            </ul>
+        2nd Semester <button ng-click="openAddToCurriculumModal($index+1, 2)">+</button>
+        <ul>
+            <li ng-repeat="curriculumEntry in year[1]" ng-click="openSetupCurriculumModal(curriculumEntry, $index+1, 2)">{{curriculumEntry.subject.code}} - {{curriculumEntry.subject.type}} - {{curriculumEntry.subject.title}}</li>
+        </ul>
+        Summer <button ng-click="openAddToCurriculumModal($index+1, 3)">+</button>
+        <ul>
+            <li ng-repeat="curriculumEntry in year[2]" ng-click="openSetupCurriculumModal(curriculumEntry, $index+1, 3)">{{curriculumEntry.subject.code}} - {{curriculumEntry.subject.type}} - {{curriculumEntry.subject.title}}</li>
+        </ul>
+        <br/>
+    </li>
+</ul>
+<br/>
+<button ng-click="addYear()">Add a Year</button>
+<br/><br/>

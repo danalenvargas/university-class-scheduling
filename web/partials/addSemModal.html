@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h3 class="modal-title">Add New Semester</h3>
+</div>
+<div class="modal-body">
+    School Year: <input type="number" name="numUnits" min="1990" ng-model="schoolYear">
+    <br /><br />
+    Semester: <select name="ddlYear" ng-model="semNum">
+      <option value="1">1st Semester</option>
+      <option value="2">2nd Semester</option>
+      <option value="3">Summer</option>
+    </select>
+    <br />
+</div>
+<div class="modal-footer">
+    <div style="float:left" ng-if="schoolYear && semNum">Creating: SY {{schoolYear}} - {{schoolYear+1}}, {{semNum==1? '1st Semester' : semNum==2? '2nd Semester' : 'Summer'}}</div>
+    <button class="btn btn-primary" type="button" ng-click="ok()">Create</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <h3 class="modal-title">Add course</h3>
+</div>
+<div class="modal-body">
+    Department: <select name="ddlDepartment" ng-model="selectedDepartment" ng-options="department as department.code for department in departmentList">
+    </select>
+    <br />
+    Code: <input type="text" name="txtCode" ng-model="code">
+    <br />
+    Name: <input type="text" name="txtTitle" ng-model="name">
+    <br />
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Add</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

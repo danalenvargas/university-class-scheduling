@@ -1,0 +1,46 @@
+<div class="modal-header">
+    <h3 class="modal-title">Schedule Plotting</h3>
+</div>
+<div class="modal-body">
+    Subject: <select ng-disabled = "cannotEdit" name="ddlSubject" ng-model="selectedSubject" ng-options="subject as subject.code + ' ' + subject.type disable when subject.isDisabled for subject in subjectList" ng-change="onSubjectChange()">
+    </select>
+    {{selectedSubject.title}} | {{selectedSubject.type}}  |  Hours: {{selectedSubject.hoursPlotted}}/{{selectedSubject.hours}}
+    <br />
+    <br />
+    Day: <select ng-disabled = "cannotEdit" name="ddlDay" ng-model="selectedDay" ng-options="day.id as day.text for day in dayList" ng-change="onDayChange()">
+    </select>
+    <br />
+    Begin: <select ng-disabled = "cannotEdit" name="ddlBegin" ng-model="selectedStart" ng-options="time.id as time.text disable when time.isDisabled for time in startList" ng-change="onStartChange()">
+    </select>
+    <br />
+    End: <select ng-disabled = "cannotEdit" name="ddlEnd" ng-model="selectedEnd" ng-options="time.id as time.text disable when time.isDisabled for time in endList" ng-change="onEndChange()">
+    </select>
+    <br />
+    Instructor: <select ng-disabled = "cannotEdit" name="ddlInstructor" ng-model="selectedInstructor" ng-options="instructor as instructor.name for instructor in instructorList" ng-change="">
+    </select>
+    <br />
+    Room: <select ng-disabled = "cannotEdit" name="ddlRoom" ng-model="selectedRoom" ng-options="room as room.name for room in roomList" ng-change="">
+    </select>
+    <br />
+</div>
+<div class="modal-footer">
+    <span style="float:left">Status: {{schedEntry.status}}&nbsp&nbsp&nbsp&nbsp&nbspCreator: {{schedEntry.creator.userName}}</span>
+    <br />
+    <button style="float:left" class="btn btn-primary" id="btnSubmit" type="button" ng-disabled="isSubmittedBtnDisabled" ng-click="submit()">Submit</button>
+    <button style="float:left" class="btn btn-primary" id="btnUnsubmit" type="button" ng-disabled="isUnsubmittedBtnDisabled" ng-click="unsubmit()">Un-submit</button>
+    
+    History: <select ng-disabled="cannotEdit" name="ddlHistory" ng-model="selectedHistory" ng-options="schedEntry as schedEntry.timestamp disable when schedEntry.isDisabled for schedEntry in historyList" ng-change="onHistorySelect(selectedHistory)">
+    </select>
+    <button class="btn btn-primary" type="button" ng-disabled="cannotEdit" ng-click="ok()">Apply</button>
+    <button class="btn btn-primary" type="button" ng-disabled="cannotEdit" ng-click="delete()">Delete Schedule</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    <br/><br/>
+    <uib-accordion>
+        <div uib-accordion-group class="panel-default" is-open="status.open">
+          <uib-accordion-heading>
+            I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+          </uib-accordion-heading>
+          This is just some content to illustrate fancy headings.
+        </div>
+    </uib-accordion>
+</div>

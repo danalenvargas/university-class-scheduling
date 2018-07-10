@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <h3 class="modal-title">Setup Course</h3>
+</div>
+<div class="modal-body">
+    Department: {{selectedCourse.department.name}}
+    <br />
+    Code: <input type="text" name="txtCode" ng-model="newCode">
+    <br />
+    Name: <input type="text" name="txtName" ng-model="newName">
+    <br />
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Apply</button>
+    <button class="btn btn-primary" type="button" ng-click="delete()">Delete Course</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

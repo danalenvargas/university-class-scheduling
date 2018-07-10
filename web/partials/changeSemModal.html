@@ -1,0 +1,22 @@
+<div class="modal-header">
+    <h3 class="modal-title">Change Active Semester</h3>
+</div>
+<div class="modal-body">
+    Choose Semester: <select name="ddlSem" ng-model="selectedSem" ng-options="sem as sem.schoolYear+' - '+(sem.schoolYear+1)+', '+sem.semString for sem in semList | orderBy:'schoolYear'">
+    </select>
+    &nbsp&nbsp&nbsp&nbsp&nbsp
+    <button  type="button" ng-click="openAddSemModal()">Create New Semester</button>
+    <br />
+    School Year: <span ng-if="selectedSem">{{selectedSem.schoolYear}} - {{selectedSem.schoolYear + 1}}</span>
+    <br />
+    Semester: {{selectedSem.semString}}
+    <br />
+    Status: <span ng-if="selectedSem">{{selectedSem.isFinalized? 'Finalized' : 'Not Finalized'}}</span>
+    <br />
+    Creation Date: {{selectedSem.entryDate}}
+    <br />
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Set as Active Semester</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
