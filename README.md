@@ -1,4 +1,4 @@
-# Class Scheduling System for Cavite State University - Indang Campus
+## Class Scheduling System for Cavite State University - Indang Campus
 
 Created with my thesis partner for our thesis.
 
